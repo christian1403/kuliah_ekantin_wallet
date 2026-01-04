@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('harga', 10, 2);
             $table->integer('stok');
             $table->string('gambar', 255)->nullable();
+            $table->string('kategori', 50)->nullable();
             $table->timestamps();
 
             $table->foreign('merchant_id')
