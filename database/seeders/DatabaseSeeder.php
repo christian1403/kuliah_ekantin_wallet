@@ -15,18 +15,21 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::firstOrCreate(
-            ['email' => 'test@example.com'],
-            [
-                'name' => 'Test User',
-                'password' => 'password',
-                'email_verified_at' => now(),
-            ]
-        );
+        // User::firstOrCreate(
+        //     ['email' => 'test@example.com'],
+        //     [
+        //         'name' => 'Test User',
+        //         'password' => 'password',
+        //         'email_verified_at' => now(),
+        //     ]
+        // );
 
         $this->call(RoleSeeder::class);
+        $this->call(AdminSeeder::class);
+        $this->call(MetodeBayarSeeder::class);
         $this->call(MerchantSeeder::class);
         $this->call(KasirSeeder::class);
         $this->call(MahasiswaSeeder::class);
+        $this->call(ProdukSeeder::class);
     }
 }

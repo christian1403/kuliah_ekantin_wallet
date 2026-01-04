@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Traits\HasCustomId;
 
 class WalletTransaction extends Model
 {
-    use HasFactory;
+    use HasFactory, HasCustomId;
 
     /**
      * The table associated with the model.
@@ -31,7 +32,15 @@ class WalletTransaction extends Model
      * Indicates if the IDs are auto-incrementing.
      */
     public $incrementing = false;
-
+    /**
+     * ID configuration for automatic generation
+     */
+    protected $idConfig = [
+        'prefix' => '',
+        'length' => 32,
+        'type' => 'uuid',
+        'without_prefix' => true,
+    ];
     /**
      * The attributes that are mass assignable.
      *
@@ -43,6 +52,7 @@ class WalletTransaction extends Model
         'invoice',
         'amount',
         'tipe_transaksi',
+        'status_transaksi',
         'waktu_transaksi',
         'deskripsi',
         'curr_balance',

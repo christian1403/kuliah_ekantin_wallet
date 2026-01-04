@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
+use App\Traits\HasCustomId;
 class MetodeBayar extends Model
 {
-    use HasFactory;
+    use HasFactory, HasCustomId;
 
     /**
      * The table associated with the model.
@@ -29,6 +29,16 @@ class MetodeBayar extends Model
      * Indicates if the IDs are auto-incrementing.
      */
     public $incrementing = false;
+
+    /**
+     * ID configuration for automatic generation
+     */
+    protected $idConfig = [
+        'prefix' => '',
+        'length' => 32,
+        'type' => 'uuid',
+        'without_prefix' => true,
+    ];
 
     /**
      * The attributes that are mass assignable.

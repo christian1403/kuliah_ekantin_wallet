@@ -20,13 +20,13 @@ class MahasiswaSeeder extends Seeder
         // Predefined mahasiswa data with realistic Indonesian student information
         $mahasiswaData = [
             [
-                'npm' => '2021010001',
-                'nama' => 'Ahmad Rizki Pratama',
-                'email' => 'ahmad.rizki.2021010001@student.ui.ac.id',
+                'npm' => '06.2024.1.07763',
+                'nama' => 'Christian Chandra',
+                'email' => '062024107763@mhs.itats.ac.id',
                 'alamat' => 'Jl. Margonda Raya No. 123, Depok, Jawa Barat',
-                'tanggal_lahir' => '2002-03-15',
+                'tanggal_lahir' => '2003-05-14',
                 'jenis_kelamin' => 'L',
-                'no_hp' => '081234567801',
+                'no_hp' => '085784089212',
                 'create_user' => true,
             ],
             [
@@ -139,6 +139,7 @@ class MahasiswaSeeder extends Seeder
                         'email_verified_at' => now(),
                     ]
                 );
+                $user->assignRole('mahasiswa');
                 $userId = $user->id;
                 $createdUsers++;
             }

@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Traits\HasCustomId;
 
 class Produk extends Model
 {
-    use HasFactory;
+    use HasFactory, HasCustomId;
 
     /**
      * The table associated with the model.
@@ -31,6 +32,16 @@ class Produk extends Model
     public $incrementing = false;
 
     /**
+     * ID configuration for automatic generation
+     */
+    protected $idConfig = [
+        'prefix' => '',
+        'length' => 32,
+        'type' => 'uuid',
+        'without_prefix' => true,
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -43,6 +54,7 @@ class Produk extends Model
         'harga',
         'stok',
         'gambar',
+        'kategori',
     ];
 
     /**
@@ -56,6 +68,11 @@ class Produk extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'produk_id';
+    }
 
     /**
      * Get the merchant that owns the product.
