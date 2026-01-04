@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('invoice', 100);
             $table->decimal('amount', 10, 2);
             $table->string('tipe_transaksi', 20);
+            $table->string('status_transaksi', 20);
             $table->timestamp('waktu_transaksi')->useCurrent();
             $table->text('deskripsi')->nullable();
             $table->decimal('curr_balance', 10, 2);

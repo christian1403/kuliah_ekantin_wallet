@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('detail_pengeluaran', function (Blueprint $table) {
             $table->string('merchant_id', 255);
             $table->string('transaction_id', 255);
-            $table->string('kasir_id', 255);
+            $table->string('kasir_id', 255)->nullable();
             $table->timestamps();
 
             $table->foreign('merchant_id')
